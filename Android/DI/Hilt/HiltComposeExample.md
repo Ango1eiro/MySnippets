@@ -6,4 +6,6 @@ graph TD;
     MainActivity;
     HomeScreen-->HomeViewModel;
     HomeViewModel-->RepositoryModule;
+    
+    click MyApplication callback "Tooltip for a callback"
 ```
