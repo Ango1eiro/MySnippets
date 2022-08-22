@@ -7,8 +7,8 @@
 graph TD;
     MyApplication["@HiltAndroidApp<br>MyAplication"];
     MainActivity["@AndroidEntryPoint<br>MainActivity"];
-    HomeScreen-->HomeViewModel;
-    HomeViewModel-->RepositoryModule;
+    HomeScreen["HomeScreen<br>(viewModel: HomeViewModel = hiltViewModel())"]-->HomeViewModel;
+    HomeViewModel["@HiltViewModel<br>HomeViewModel @Inject constructor(private val myRepository: MyRepository)"]-->RepositoryModule;
     
 
 ```
