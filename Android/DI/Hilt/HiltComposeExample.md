@@ -1,6 +1,13 @@
 
 
 ```mermaid
+
+<script>
+  var callback = function () {
+      alert('A callback was triggered');
+  };
+</script>
+
 graph TD;
     MyApplication[HiltAndroidApp];
     MainActivity;
