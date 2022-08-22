@@ -5,5 +5,5 @@ graph TD;
     MyApplication;
     MainActivity;
     HomeScreen-->HomeViewModel;
-    HomeViewModel-->;
+    HomeViewModel-->RepositoryModule;
 ```
