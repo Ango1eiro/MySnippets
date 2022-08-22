@@ -2,7 +2,8 @@
 
 ```mermaid
 graph TD;
-    A-->B;
-    A-->C;
-    D;
+    MyApplication;
+    MainActivity;
+    HomeScreen-->HomeViewModel;
+    HomeViewModel-->;
 ```
