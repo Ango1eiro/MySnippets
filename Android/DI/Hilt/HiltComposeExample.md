@@ -13,6 +13,7 @@ graph TD;
     @AnRemoteDataSource remoteDataSource: MyDataSource,
     <br>@AnLocalDataSource localDataSource: MyDataSource)"]--remoteDataSource-->DataSourceModule;
     RepositoryModule--localDataSource-->DataSourceModule;
-    DataSourceModule--localDataSource-->DatabaseModule[(DatabaseModule)];
     DataSourceModule--remoteDataSource-->RetrofitModule;
+    DataSourceModule--localDataSource-->DatabaseModule[(DatabaseModule)];
+
 ```
