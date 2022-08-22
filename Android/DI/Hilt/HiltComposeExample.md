@@ -5,7 +5,7 @@
 
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffcccc', 'edgeLabelBackground':'#ffffee', 'tertiaryColor': '#fff0f0'}}}%%
 graph TD;
-    MyApplication["<font color='red'>@HiltAndroidApp</font><br>MyAplication"];
+    MyApplication["<font color='yellow'>@HiltAndroidApp</font><br>MyAplication"];
     MainActivity["@AndroidEntryPoint<br>MainActivity"];
     HomeScreen["HomeScreen<br>(viewModel: HomeViewModel = hiltViewModel())"]-->HomeViewModel;
     HomeViewModel["@HiltViewModel<br>HomeViewModel @Inject constructor(private val myRepository: MyRepository)"]-->RepositoryModule;
