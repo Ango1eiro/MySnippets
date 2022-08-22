@@ -9,7 +9,7 @@ graph TD;
     MainActivity["@AndroidEntryPoint<br>MainActivity"];
     HomeScreen["HomeScreen<br>(viewModel: HomeViewModel = hiltViewModel())"]-->HomeViewModel;
     HomeViewModel["@HiltViewModel<br>HomeViewModel @Inject constructor(private val myRepository: MyRepository)"]-->RepositoryModule;
-    RepositoryModule--remoteDataSource-->DataSourceModule;
+    RepositoryModule["provideMyRepository(@AnRemoteDataSource remoteDataSource: MyDataSource,<br>@AnLocalDataSource localDataSource: MyDataSource)"]--remoteDataSource-->DataSourceModule;
     RepositoryModule--localDataSource-->DataSourceModule;
     DataSourceModule-->DatabaseModule[(DatabaseModule)];
 
