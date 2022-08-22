@@ -3,7 +3,7 @@
 ```mermaid
 
 
-
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#ffcccc', 'edgeLabelBackground':'#ffffee', 'tertiaryColor': '#fff0f0'}}}%%
 graph TD;
     MyApplication["@HiltAndroidApp<br>MyAplication"];
     MainActivity["@AndroidEntryPoint<br>MainActivity"];
