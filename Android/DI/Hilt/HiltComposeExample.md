@@ -2,7 +2,7 @@
 
 ```mermaid
 graph TD;
-    MyApplication;
+    MyApplication[@HiltAndroidApp];
     MainActivity;
     HomeScreen-->HomeViewModel;
     HomeViewModel-->RepositoryModule;
