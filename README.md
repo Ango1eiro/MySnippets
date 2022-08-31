@@ -1,2 +1,1 @@
 # MySnippets
-My snippets repository
