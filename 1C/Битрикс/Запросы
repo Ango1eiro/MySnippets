@@ -1,0 +1,6 @@
+Получение xml заказа (3 запрос)
+
+https://АДРЕССАЙТА/bitrix/admin/1c_exchange.php?type=sale&mode=checkauth
+https://АДРЕССАЙТА/bitrix/admin/1c_exchange.php?type=sale&mode=init&sessid=<id_сессии_из_первого_запроса>
+https://АДРЕССАЙТА/bitrix/admin/1c_exchange.php?type=sale&mode=query&sessid=<id_сессии_из_первого_запроса>
+https://АДРЕССАЙТА/bitrix/admin/1c_exchange.php?type=sale&mode=success&sessid=<id_сессии_из_первого_запроса>
