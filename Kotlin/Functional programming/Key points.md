@@ -1,7 +1,7 @@
 A function *f* is pure if its body is a ***referentially transparent expression*** and it doesn’t have side effects  
 An expression is ***referentially transparent*** if replacing every occurrence in a program with its value doesn’t alter the behavior of the program itself  
-A lambda expression is simply an anonymous function you can use as a value
-The term ***isomorphic*** means “having the same form or structure”. Two types, A and B , are isomorphic if a function of type Fun<A, B> maps each value of A to one and only one value in B and vice versa.
-Exponents like *A ^ B* are equivalent to the function type *Fun<B, A>* .
-A ***functor*** is a way to map one category to another while preserving their structures.
-A ***monoid*** is a set of values with an associative binary operation and a unit element.
+A lambda expression is simply an anonymous function you can use as a value  
+The term ***isomorphic*** means “having the same form or structure”. Two types, A and B , are isomorphic if a function of type Fun<A, B> maps each value of A to one and only one value in B and vice versa.  
+Exponents like *A ^ B* are equivalent to the function type *Fun<B, A>* .  
+A ***functor*** is a way to map one category to another while preserving their structures.  
+A ***monoid*** is a set of values with an associative binary operation and a unit element.  
