@@ -1,4 +1,4 @@
-The ***initial object*** in a category has outgoing unique morphisms to all other objects.  
+The ***initial*** object in a category has outgoing unique morphisms to all other objects.  
 The ***terminal*** object in a category has incoming unique morphisms from all other objects.  
 ***Initial*** and ***terminal*** objects explain the meaning of the Kotlin standard types ***Nothing*** and ***Unit*** .  
 A function *f* is ***pure*** if its body is a ***referentially transparent*** expression and it doesn’t have side effects  
