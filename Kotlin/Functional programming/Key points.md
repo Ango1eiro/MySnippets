@@ -5,3 +5,5 @@ The term ***isomorphic*** means “having the same form or structure”. Two typ
 Exponents like *A ^ B* are equivalent to the function type *Fun<B, A>* .  
 A ***functor*** is a way to map one category to another while preserving their structures.  
 A ***monoid*** is a set of values with an associative binary operation and a unit element.  
+A ***semigroup*** is a typeclass defining a binary associative function without the need for a unit element.  
+A ***monoid*** is a ***semigroup*** with a unit element.  
