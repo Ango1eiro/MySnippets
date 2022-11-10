@@ -10,3 +10,4 @@ A ***functor*** is a way to map one category to another while preserving their s
 A ***monoid*** is a set of values with an associative binary operation and a unit element.  
 A ***semigroup*** is a typeclass defining a binary associative function without the need for a unit element.  
 A ***monoid*** is a ***semigroup*** with a unit element.  
+A ***monad*** is a ***monoid*** in the category of ***endofunctors***  
