@@ -1,1 +1,1 @@
-withContext is best used when you need to return a single value from a suspendable piece of code, whereas async/await are best used when you have multiple functions running in parallel combined to produce one result.  
+***withContext*** is best used when you need to return a **single value** from a suspendable piece of code, whereas ***async/await*** are best used when you have **multiple functions** running in parallel combined to produce one result.  
