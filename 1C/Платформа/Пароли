@@ -1,0 +1,31 @@
+Начиная с платформы: 8.3.5 решение для SQL такое.
+1) Запускаем конфигуратор,
+2) открывается окно авторизации,
+3) затем переименовываем таблицу v8users в v8users_tmp и также в таблице Params переименовываем запись users.usr в users.usr_tmp, (создать пустую users?)
+4) затем в окне авторизации жмем Enter и попадаем в конфигуратор с полными правами,
+5) после этого переименовываем таблицу и запись в исходное состояние и можем работать со списком пользователей уже в конфигураторе
+
+-- Переименовать таблицу v8users
+EXEC sp_rename 'v8users', 'v8users_tmp'
+GO
+-- Переименовать users.usr в users.usr_tmp
+UPDATE Params
+SET FileName = 'users.usr_tmp'
+WHERE FileName = 'users.usr'
+GO  
+
+-- Создать пустую таблицу v8users
+create   table v8users(
+ID binary(16) NOT NULL,
+Name nvarchar(64) NOT NULL,
+Descr nvarchar(128) NOT NULL,
+OSName nvarchar(128) NULL,
+Changed datetime2(0) NOT NULL,
+RolesID numeric(10,0) NOT NULL,
+Show binary(1) NOT NULL,
+Data varbinary(max) NOT NULL,
+EAuth binary(1) NULL,
+AdmRole binary(1) NULL,
+UsSprH numeric(10,0) NULL,
+PRIMARY KEY (ID)
+);
