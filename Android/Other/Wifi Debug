@@ -1,0 +1,9 @@
+Type the ./adb pair command in the Terminal window. Add space and type the IP address and port you saw in Step 2. Remember to remove ./ from the command if you use Windows.
+Entering the IP address to link the wireless debugging device to a Mac
+Enter the pairing code and press Enter to pair your Android device with your computer.
+Entering the wireless paring code from the wireless debugging feature using a Mac
+You will see the successful pairing dialog on your computer and phone, as shown in the screenshots below.
+On your Android phone, go to the main Wireless Debugging page. On this page, you will see the IP Address of the Android device. Use this to connect your Android device.
+In the Terminal window, use the command ./adb connect, followed by the IP address and port. Press Enter to execute the command.
+Showing the debugging device successfully connecting over the same network on a Mac
+You will see a successful connection notification on your Android device and computer.
