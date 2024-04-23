@@ -1,0 +1,57 @@
+apktool — tool for reverse engineering Android apk files. In this case we are using to extract files from apk and rebuild.
+keytool — Java tool for creating keys/certs, that comes with the JDK.
+jarsigner Java tool for signing JAR/APK files, that comes with the JDK.
+zipalign — archive alignment tool, that comes with the Android SDK.
+JD-GUI — To view java code
+dex2jar — Converts Android dex files to class/jar files.
+Instructions:
+First, Take any apk file and unpack(decompile) it. This will create an “application” directory with assets, resources, compiled code, etc.
+
+# To decompile an apk
+
+apktool d -r -s application.apk
+or
+
+apktool d application.apk
+This below part is to see convert Dex files to java files.
+You can skip this part if you don’t wish to check the Code. You can still make some changes in manifest.xml and res folder.
+
+If you wish to decompile any java files, you can do the following:
+
+# Convert the Dex files into standard class files
+
+dex2jar application/classes.dex
+# Now use the JD (Java Decompiler) to inspect the source
+
+jd-gui classes-dex2jar.jar
+You can just change the orientation of the main activity in the Manifest file or you can change the app name from strings.xml file.(just to check the recompiled apk is working or not)
+Once you have made your changes, you need to repack the APK. This will create a my_application.apkfile:
+
+# To recompile(build) the apk
+
+apktool b -f -d application
+After recompiling (building) the apk the new apk will be generated in Dist folder.
+
+Application — Dist- application.apk
+
+The APK must be signed before you run on your device.
+
+Before signing an apk, create a key if you don’t have an existing one. If prompted for a password, create your own password.
+
+# To generate a key.
+
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name \
+-keyalg RSA -keysize 2048 -validity 10000
+
+Now sign the APK with the key:
+
+# Sign the apk
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore my_application.apk alias_name
+# Verify apk
+
+jarsigner -verify -verbose -certs my_application.apk
+Finally, the apk must be aligned for optimal loading:
+
+./zipalign -v 4 my_application.apk my_application-aligned.apk
+you have a my_application-aligned.apk file, which you can install onto your device.
