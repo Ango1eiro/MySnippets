@@ -1,0 +1,5 @@
+It's preferable to launch Coroutines on the main dispatcher for the production of UI state. That is, outside the withContext block in the code snippets below. However, if you need to update the UI state in a different background context, you can do so using the following APIs:
+
+Use the withContext method to run Coroutines in a different concurrent context.
+When using MutableStateFlow, use the update method as usual.
+When using Compose State, use the Snapshot.withMutableSnapshot to guarantee atomic updates to State in the concurrent context.
