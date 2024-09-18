@@ -14,7 +14,7 @@ ADD EVENT sqlserver.query_pre_execution_showplan(
 			sqlserver.query_hash,
 			sqlserver.session_id,
             sqlserver.request_id)
-	WHERE ([sqlserver.database_name] = '100_UT_OOO')),
+	WHERE ([sqlserver.database_name] = 'DB_NAME')),
 ADD EVENT sqlserver.query_post_execution_showplan(
     ACTION (sqlserver.database_name,
 			sqlserver.client_hostname,
@@ -26,7 +26,7 @@ ADD EVENT sqlserver.query_post_execution_showplan(
 			sqlserver.query_hash,
 			sqlserver.session_id,
             sqlserver.request_id)
-	WHERE ([duration]>(500000) AND	[sqlserver.database_name] = '100_UT_OOO')),
+	WHERE ([duration]>(500000) AND	[sqlserver.database_name] = 'DB_NAME')),
 -- Класс событий RPC:Completed указывает, что удаленный вызов процедуры завершен.
 -- https://docs.microsoft.com/ru-ru/sql/relational-databases/event-classes/rpc-completed-event-class?view=sql-server-2017
 ADD EVENT sqlserver.rpc_completed(
@@ -40,7 +40,7 @@ ADD EVENT sqlserver.rpc_completed(
 			sqlserver.query_hash,
 			sqlserver.session_id,
             sqlserver.request_id)
-    WHERE ([duration]>(500000) AND	[sqlserver.database_name] = '100_UT_OOO')),
+    WHERE ([duration]>(500000) AND	[sqlserver.database_name] = 'DB_NAME')),
 -- Класс событий SQL:BatchCompleted указывает на завершение выполнения пакета языка Transact-SQL.
 -- https://docs.microsoft.com/ru-ru/sql/relational-databases/event-classes/sql-batchcompleted-event-class?view=sql-server-2017
 ADD EVENT sqlserver.sql_batch_completed(
@@ -54,10 +54,10 @@ ADD EVENT sqlserver.sql_batch_completed(
 			sqlserver.query_hash,
 			sqlserver.session_id,
             sqlserver.request_id)
-    WHERE ([duration]>(500000) AND	[sqlserver.database_name] = '100_UT_OOO'))
+    WHERE ([duration]>(500000) AND	[sqlserver.database_name] = 'DB_NAME'))
 ADD TARGET package0.event_file(SET 
     -- Путь к файлу хранения логов. Если не указан, то используется путь к каталогу логов SQL Server
-    filename=N'D:\Rogoznyak\SQL\Logs\QueryPlanAnalyze.xel',
+    filename=N'D:\PathToLogs\QueryPlanAnalyze.xel',
     -- Максимальный размер файла в мегабайтах
     max_file_size=(1024),
     -- Максимальное количество файлов, после чего начнется перезапись логов в более старых файлах.
