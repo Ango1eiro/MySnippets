@@ -3,6 +3,7 @@
 -- Используйте с осторожность и пониманием что делайте.
 CREATE EVENT SESSION QueryPlanAnalyze
 ON SERVER
+-- Перед выполнением. Легкий?
 ADD EVENT sqlserver.query_pre_execution_showplan(
     ACTION (sqlserver.database_name,
 			sqlserver.client_hostname,
@@ -15,6 +16,19 @@ ADD EVENT sqlserver.query_pre_execution_showplan(
 			sqlserver.session_id,
             sqlserver.request_id)
 	WHERE ([sqlserver.database_name] = 'DB_NAME')),
+-- Облегченный актуальный план без метрик CPU. Начиная с SQL 2019 использует LWP v3
+ADD EVENT sqlserver.query_post_execution_plan_profile(
+    ACTION (sqlserver.database_name,
+			sqlserver.client_hostname,
+			sqlserver.client_app_name,
+            sqlserver.plan_handle,
+            sqlserver.sql_text,
+            sqlserver.tsql_stack,
+            package0.callstack,
+			sqlserver.query_hash,
+			sqlserver.session_id,
+            sqlserver.request_id)
+	WHERE ([duration]>(500000) AND	[sqlserver.database_name] = 'DB_NAME')),
 ADD EVENT sqlserver.query_post_execution_showplan(
     ACTION (sqlserver.database_name,
 			sqlserver.client_hostname,
